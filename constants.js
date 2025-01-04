@@ -7,8 +7,8 @@ import {
 
 export const websiteInformation = [
   {
-    name: "website",
-    copywright: "Blah blah blah, copyright blah blah.",
+    name: "Roob",
+    copywright: "Copywright.",
     year: 2024,
     developer: "Junaid Adams",
     socials: [
@@ -24,26 +24,26 @@ export const navigationLinks = [
   {
     key: 1,
     name: "home",
-    link: "/",
+    link: "#",
   },
   {
     key: 2,
     name: "about",
-    link: "/about",
+    link: "#about",
   },
   {
     key: 3,
     name: "services",
-    link: "/services",
+    link: "#services",
   },
   {
     key: 4,
     name: "FAQ",
-    link: "/faq",
+    link: "#faq",
   },
   {
     key: 5,
     name: "contact",
-    link: "/contact",
+    link: "#contact",
   },
 ];
