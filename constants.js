@@ -38,11 +38,6 @@ export const navigationLinks = [
   },
   {
     key: 4,
-    name: "FAQ",
-    link: "#faq",
-  },
-  {
-    key: 5,
     name: "contact",
     link: "#contact",
   },
