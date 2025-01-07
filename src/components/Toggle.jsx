@@ -6,7 +6,7 @@ const Toggle = ({ isOpen, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={`p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white shadow-lg bg-cyan-800
+      className={`p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white shadow-lg bg-[#00000046] 
       `}
       aria-label="Toggle menu"
     >
