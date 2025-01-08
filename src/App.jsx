@@ -8,12 +8,12 @@ function App() {
         id=""
       >
         {" "}
-        <div className="md:w-1/3 w-3/4 bg-gradient-to-b from-pastelpink to-pastelblue border-black border rounded-full m-auto">
+        <div className="md:w-1/3 w-3/4 bg-gradient-to-b from-pastelpink to-pastelblue border-black border rounded-full mx-auto mb-auto mt-4 md:m-auto">
           <img src="./heroimg.png" className="py-5" />
         </div>
-        <div className="md:w-1/3 w-3/4 m-auto text-center">
+        <div className="md:w-1/3 w-3/4 mx-auto mt-auto mb-4 md:m-auto text-center">
           <h1 className="md:text-6xl text-4xl font-bold">Hi, I&apos;m roob!</h1>
-          <p className="text-lg">Welcome to my website</p>
+          <p className="text-xl tracking-widest">Welcome to my website</p>
         </div>
       </section>
       <section className="min-h-screen bg-pastelgreen flex" id="">
