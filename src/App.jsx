@@ -1,4 +1,6 @@
 import "./App.css";
+import CommissionDisplay from "./components/CommissionDisplay";
+import Pricing from "./components/Pricing";
 
 function App() {
   return (
@@ -21,9 +23,14 @@ function App() {
           <h1 className="lg:text-6xl text-xl sm:text-2xl md:text-4xl font-bold text-white bg-black py-4 px-4 rounded-b-2xl w-fit">
             Pricing
           </h1>
+          <Pricing />
         </div>
       </section>
-      <section className="min-h-screen bg-pastelgreen" id=""></section>
+      <section className="min-h-screen bg-pastelgreen" id="">
+        <div>
+          <CommissionDisplay />
+        </div>
+      </section>
     </main>
   );
 }
