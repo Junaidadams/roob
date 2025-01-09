@@ -7,7 +7,7 @@ const Pricing = () => {
   useEffect(() => {
     client
       .fetch(
-        '*[_type == "pricing"]{_id, name, price, currency, description, validUntil}'
+        '*[_type == "pricing"]{_id, name, lineartPrice, colourPrice, description, validUntil}'
       )
       .then((data) => {
         setPrices(data);
@@ -17,33 +17,29 @@ const Pricing = () => {
 
   return (
     <div>
-      <h1>Pricing</h1>
-      <div>
+      <div className="grid grid-cols-1  sm:grid-cols-2 ">
         {prices.length > 0 ? (
           prices.map((price) => (
             <div
               key={price._id}
-              style={{
-                border: "1px solid #ccc",
-                padding: "10px",
-                margin: "10px 0",
-              }}
+              className="border-gray-700 border p-2 m-2 rounded-sm bg-pastelblue bg-opacity-25 flex flex-col "
             >
-              <h1 className="text-2xl">
-                <strong> {price.name}</strong>
-              </h1>
-              <p>
-                <strong>Price:</strong> {price.price} {price.currency}
-              </p>
-              <p>
-                <strong>Description:</strong> {price.description}
-              </p>
-              {price.validUntil && (
+              <div>
+                <h1 className="text-xl font-medium">{price.name}</h1>
                 <p>
-                  <strong>Valid Until:</strong>{" "}
-                  {new Date(price.validUntil).toLocaleDateString()}
+                  Lineart = <strong>£{price.lineartPrice}</strong>
                 </p>
-              )}
+                <p>
+                  Colour = <strong>£{price.colourPrice}</strong>
+                </p>
+              </div>
+              <div>
+                <p>Example:</p>
+                <img
+                  src="./heroimg.png"
+                  className="bg-white bg-opacity-25 rounded-sm"
+                />
+              </div>
             </div>
           ))
         ) : (

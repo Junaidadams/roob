@@ -24,7 +24,7 @@ const CommissionDisplay = () => {
             <img
               src={urlFor(piece.image).width(300).url()} // Use urlFor to generate the image URL
               alt={piece.title}
-              className="w-28"
+              className="w-28 h-28 object-cover p-[1px] bg-black rounded-sm"
             />
           )}
         </div>

@@ -59,7 +59,7 @@ const Navbar = () => {
             exit="closed"
             variants={variants}
             transition={{ duration: 0.5 }}
-            className="absolute top-0 left-0 w-full shadow-lg flex flex-col space-y-6 px-4 pt-2 pb-10 capitalize md:hidden z-30 bg-[#8c9b89] "
+            className="absolute top-0 left-0 w-full shadow-lg flex flex-col space-y-6 px-4 pt-2 pb-10 capitalize md:hidden z-30 bg-pastelpink"
           >
             <div className="md:hidden ">
               <Toggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />

@@ -24,17 +24,17 @@ export const navigationLinks = [
   {
     key: 1,
     name: "home",
-    link: "#",
+    link: "#home",
   },
   {
     key: 2,
-    name: "about",
-    link: "#about",
+    name: "pricing",
+    link: "#pricing",
   },
   {
     key: 3,
-    name: "services",
-    link: "#services",
+    name: "portfolio",
+    link: "#portfolio",
   },
   {
     key: 4,
