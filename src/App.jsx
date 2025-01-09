@@ -19,7 +19,7 @@ function App() {
         </div>
       </section>
       <section className="min-h-screen bg-pastelgreen flex" id="">
-        <div className="bg-[#f5f5f5] border border-black m-auto w-3/4 lg:w-3/5 h-96 rounded px-4 ">
+        <div className="bg-[#f5f5f5] border border-black m-auto w-3/4 lg:w-3/5 rounded px-4 ">
           <h1 className="lg:text-6xl text-xl sm:text-2xl md:text-4xl font-bold text-white bg-black py-4 px-4 rounded-b-2xl w-fit">
             Pricing
           </h1>

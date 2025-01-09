@@ -7,7 +7,7 @@ const Pricing = () => {
   useEffect(() => {
     client
       .fetch(
-        '*[_type == "pricing"]{_id, price, currency, description, validUntil}'
+        '*[_type == "pricing"]{_id, name, price, currency, description, validUntil}'
       )
       .then((data) => {
         setPrices(data);
@@ -29,6 +29,9 @@ const Pricing = () => {
                 margin: "10px 0",
               }}
             >
+              <h1 className="text-2xl">
+                <strong> {price.name}</strong>
+              </h1>
               <p>
                 <strong>Price:</strong> {price.price} {price.currency}
               </p>
