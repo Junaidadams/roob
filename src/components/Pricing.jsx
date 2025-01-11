@@ -25,7 +25,9 @@ const Pricing = () => {
               className="border-gray-700 border p-2 m-2 rounded-sm bg-pastelblue bg-opacity-25 flex flex-col "
             >
               <div>
-                <h1 className="text-xl font-medium">{price.name}</h1>
+                <h1 className="text-xl lg:text-2xl font-medium">
+                  {price.name}
+                </h1>
                 <p>
                   Lineart = <strong>£{price.lineartPrice}</strong>
                 </p>
@@ -34,7 +36,7 @@ const Pricing = () => {
                 </p>
               </div>
               <div>
-                <p>Example:</p>
+                <p className="font-semibold">Example:</p>
                 <img
                   src="./heroimg.png"
                   className="bg-white bg-opacity-25 rounded-sm"

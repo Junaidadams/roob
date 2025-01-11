@@ -1,6 +1,5 @@
 import { navigationLinks, websiteInformation } from "../../constants";
 
-// Destructure the first item from websiteInformation
 const { socials } = websiteInformation[0];
 
 const Footer = () => {

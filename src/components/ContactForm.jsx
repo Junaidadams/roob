@@ -42,7 +42,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className=" p-2 m-2  flex flex-col ">
+    <div className=" p-2 mx-2 mt-2 mb-10  flex flex-col">
       {status && (
         <p
           className={`mb-4 text-sm ${
@@ -84,42 +84,46 @@ const ContactForm = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="type" className="block text-sm font-medium mb-1">
-            Type
-          </label>
-          <select
-            id="type"
-            name="type"
-            value={formData.type}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-700 rounded"
-            required
-          >
-            <option value="">Select Type</option>
-            <option value="pfp/icon">PFP / Icon</option>
-            <option value="portrait"> Portrait</option>
-            <option value="fullbody">Full Body</option>
-            <option value="sillyfullbody">Silly Fullbody</option>
-            {/* Add your options here */}
-          </select>
+        <div className="flex">
+          <div className="w-1/2 mr-1">
+            <label htmlFor="type" className="block text-sm font-medium mb-1">
+              Type
+            </label>
+            <select
+              id="type"
+              name="type"
+              value={formData.type}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-700 rounded"
+              required
+            >
+              <option value="">Select Type</option>
+              <option value="pfp/icon">PFP / Icon</option>
+              <option value="portrait"> Portrait</option>
+              <option value="fullbody">Full Body</option>
+              <option value="sillyfullbody">Silly Fullbody</option>
+              {/* Add your options here */}
+            </select>
+          </div>
+          <div className="w-1/2 ml-1">
+            <label htmlFor="variant" className="block text-sm font-medium mb-1">
+              Variant
+            </label>
+            <select
+              id="variant"
+              name="variant"
+              value={formData.variant}
+              onChange={handleChange}
+              className="w-full p-2 border border-gray-700 rounded"
+              required
+            >
+              <option value="">Select Variant</option>
+              <option value="lineart">Lineart</option>
+              <option value="colour">Colour</option>
+            </select>
+          </div>
         </div>
-        <div>
-          <label htmlFor="variant" className="block text-sm font-medium mb-1">
-            Variant
-          </label>
-          <select
-            id="variant"
-            name="variant"
-            value={formData.variant}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-700 rounded"
-            required
-          >
-            <option value="">Select Variant</option>
-            {/* Add your options here */}
-          </select>
-        </div>
+        <div></div>
         <div>
           <label htmlFor="message" className="block text-sm font-medium mb-1">
             Message
