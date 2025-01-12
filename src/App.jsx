@@ -36,7 +36,7 @@ function App() {
         </div>
       </section>
       <section className="min-h-screen bg-pastelgreen py-10" id="portfolio">
-        <div className="bg-[#f5f5f5] border border-black m-auto w-4/5 lg:w-1/2 rounded px-4 pb-2">
+        <div className="bg-[#f5f5f5] border border-black m-auto w-4/5 lg:w-1/2 rounded px-4 pb-2 md:px-8 md:pb-4">
           <h1 className="lg:text-6xl text-2xl sm:text-3xl md:text-4xl font-bold text-white bg-black py-4 px-4 rounded-b-2xl w-fit capitalize">
             My work
           </h1>
