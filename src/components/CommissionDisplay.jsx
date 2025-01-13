@@ -37,9 +37,11 @@ const CommissionDisplay = () => {
                 className="w-full h-36 object-cover "
               />
             )}
-            <h2>{piece.title}</h2>
-            <p>{piece.artist}</p>
-            <p>{piece.price}</p>
+            <h2 className="py-4 px-2 sm:text-lg font-semibold">
+              {piece.title}
+            </h2>
+            {/* <p>{piece.artist}</p>
+            <p>{piece.price}</p> */}
           </motion.div>
         ))}
       </div>
