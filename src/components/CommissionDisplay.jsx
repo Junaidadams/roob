@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import client, { urlFor } from "../../sanity";
 import { motion } from "framer-motion";
-import { LuX } from "react-icons/lu";
 
 const CommissionDisplay = () => {
   const [commissionPieces, setCommissionPieces] = useState([]);
-  const [focused, setFocused] = useState(null); // Stores the currently focused piece
+  const [focused, setFocused] = useState(null);
 
   useEffect(() => {
     client
@@ -17,7 +16,7 @@ const CommissionDisplay = () => {
   }, []);
 
   const handleClose = () => {
-    setFocused(null); // Close the focused image
+    setFocused(null);
   };
 
   return (
@@ -25,20 +24,23 @@ const CommissionDisplay = () => {
       {/* Grid of commission pieces */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {commissionPieces.map((piece) => (
-          <div key={piece._id}>
-            <h2>{piece.title}</h2>
-            <p>{piece.artist}</p>
-            <p>{piece.price}</p>
+          <motion.div
+            key={piece._id}
+            whileHover={{ scale: 1.02 }}
+            onClick={() => setFocused(piece)}
+            className="border-black border rounded-sm hover:cursor-pointer"
+          >
             {piece.image && (
               <motion.img
                 src={urlFor(piece.image).width(300).url()}
                 alt={piece.title}
-                className="w-full h-36 object-cover p-[1px] bg-black rounded-sm hover:cursor-pointer"
-                whileHover={{ scale: 1.05 }}
-                onClick={() => setFocused(piece)}
+                className="w-full h-36 object-cover "
               />
             )}
-          </div>
+            <h2>{piece.title}</h2>
+            <p>{piece.artist}</p>
+            <p>{piece.price}</p>
+          </motion.div>
         ))}
       </div>
 
@@ -48,21 +50,30 @@ const CommissionDisplay = () => {
           className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-10"
           onClick={handleClose}
         >
-          <div className="relative">
-            <motion.img
-              src={urlFor(focused.image).width(800).url()} // Larger version of the image
-              alt={focused.title}
-              className="max-w-full max-h-full object-contain rounded"
+          <div
+            className="relative"
+            onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside the container
+          >
+            {/* Container matches image size */}
+            <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
-            />
-            <button
-              className="absolute top-2 right-2 text-white text-2xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded hover:bg-opacity-75"
-              onClick={handleClose}
+              className="relative rounded-sm bg-[#f5f5f5] inline-block w-[70vw] h-[70vh]"
             >
-              <LuX />
-            </button>
+              <img
+                src={urlFor(focused.image).url()}
+                alt={focused.title}
+                className="w-full h-full object-contain rounded"
+              />
+              {/* Button positioned relative to the image */}
+              <button
+                className="absolute top-2 right-2 text-white text-2xl font-bold bg-black bg-opacity-50 px-4 py-2 rounded hover:bg-opacity-75"
+                onClick={handleClose}
+              >
+                ×
+              </button>
+            </motion.div>
           </div>
         </div>
       )}
