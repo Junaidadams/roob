@@ -21,7 +21,7 @@ const ContactForm = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://your-backend-url.com/api/contact",
+        "https://mail-server-6sjb.onrender.com/api/mail/roob-commission-request",
         formData
       );
       setStatus({ success: true, message: "Form submitted successfully!" });
