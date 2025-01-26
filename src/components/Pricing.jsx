@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import client from "../../sanity";
+import client, { urlFor } from "../../sanity";
 
 const Pricing = () => {
   const [prices, setPrices] = useState([]);
@@ -7,7 +7,7 @@ const Pricing = () => {
   useEffect(() => {
     client
       .fetch(
-        '*[_type == "pricing"]{_id, name, lineartPrice, colourPrice, description, validUntil}'
+        '*[_type == "pricing"]{_id, name, lineartPrice, colourPrice, description, validUntil, image}'
       )
       .then((data) => {
         setPrices(data);
@@ -38,7 +38,8 @@ const Pricing = () => {
               <div>
                 <p className="font-semibold">Example:</p>
                 <img
-                  src="./heroimg.png"
+                  src={urlFor(price.image).width(300).url()}
+                  alt={price.name}
                   className="bg-white bg-opacity-25 rounded-sm"
                 />
               </div>
