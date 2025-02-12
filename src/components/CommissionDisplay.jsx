@@ -37,7 +37,7 @@ const CommissionDisplay = () => {
                 className="w-full h-36 object-cover "
               />
             )}
-            <h2 className="py-4 px-2 sm:text-lg font-semibold">
+            <h2 className="py-4 px-2 sm:text-lg font-semibold bg-pastelpink bg-opacity-30">
               {piece.title}
             </h2>
             {/* <p>{piece.artist}</p>

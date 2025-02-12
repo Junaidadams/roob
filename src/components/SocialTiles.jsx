@@ -1,4 +1,5 @@
 import { websiteInformation } from "../../constants";
+import { motion } from "framer-motion";
 
 const { socials } = websiteInformation[0];
 
@@ -8,13 +9,17 @@ const SocialTiles = () => {
       {" "}
       {socials.map(({ key, name, link, logo: Logo, accountName }) => (
         <div key={key} className="w-fit text-center">
-          <a href={link} className="flex flex-col">
+          <motion.a
+            href={link}
+            className="flex flex-col"
+            whileHover={{ y: -4 }}
+          >
             <Logo size={60} color="" className="mx-auto" />
             <div className="sm:text-lg">
               <p className="font-semibold ">{name}</p>
               <p className=" text-slate-800">{accountName}</p>
             </div>
-          </a>
+          </motion.a>
         </div>
       ))}
     </div>
