@@ -59,7 +59,7 @@ const Navbar = () => {
             exit="closed"
             variants={variants}
             transition={{ duration: 0.5 }}
-            className="absolute top-0 left-0 w-full shadow-lg flex flex-col space-y-6 px-4 pt-2 pb-10 capitalize md:hidden z-30 bg-pastelpink"
+            className="absolute top-0 left-0 w-full shadow-lg flex flex-col space-y-6 px-4 pt-2 pb-10 capitalize md:hidden z-30 bg-[#f5f5f5] bg-opacity-95 "
           >
             <div className="md:hidden ">
               <Toggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
@@ -68,7 +68,7 @@ const Navbar = () => {
               <a
                 key={link.key}
                 href={link.link}
-                className="text-ghost-white hover:text-periwinkle m-auto "
+                className="text-slate-800 font-semibold tracking-wider m-auto "
                 onClick={() => setIsOpen(false)} // Close menu on link click
               >
                 {link.name}

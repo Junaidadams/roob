@@ -46,7 +46,10 @@ const Pricing = () => {
             </div>
           ))
         ) : (
-          <p>No pricing information available.</p>
+          <p className="tracking-wider p-4 sm:text-lg">
+            Pricing information is currently unavailable, please try again
+            later.{" "}
+          </p>
         )}
       </div>
     </div>

@@ -23,27 +23,33 @@ const CommissionDisplay = () => {
     <div className="relative">
       {/* Grid of commission pieces */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-8">
-        {commissionPieces.map((piece) => (
-          <motion.div
-            key={piece._id}
-            whileHover={{ scale: 1.02 }}
-            onClick={() => setFocused(piece)}
-            className="border-black border rounded-sm hover:cursor-pointer"
-          >
-            {piece.image && (
-              <motion.img
-                src={urlFor(piece.image).width(300).url()}
-                alt={piece.title}
-                className="w-full h-36 object-cover "
-              />
-            )}
-            <h2 className="py-4 px-2 sm:text-lg font-semibold bg-pastelpink bg-opacity-30">
-              {piece.title}
-            </h2>
-            {/* <p>{piece.artist}</p>
+        {commissionPieces.length > 0 ? (
+          commissionPieces.map((piece) => (
+            <motion.div
+              key={piece._id}
+              whileHover={{ scale: 1.02 }}
+              onClick={() => setFocused(piece)}
+              className="border-black border rounded-sm hover:cursor-pointer"
+            >
+              {piece.image && (
+                <motion.img
+                  src={urlFor(piece.image).width(300).url()}
+                  alt={piece.title}
+                  className="w-full h-36 object-cover "
+                />
+              )}
+              <h2 className="py-4 px-2 sm:text-lg font-semibold bg-pastelblue bg-opacity-30">
+                {piece.title}
+              </h2>
+              {/* <p>{piece.artist}</p>
             <p>{piece.price}</p> */}
-          </motion.div>
-        ))}
+            </motion.div>
+          ))
+        ) : (
+          <p className="tracking-wider p-4 sm:text-lg">
+            Failed to load pieces correctly, please try again later.{" "}
+          </p>
+        )}
       </div>
 
       {/* Focused image overlay */}
