@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import { PiSpinnerGapDuotone, PiCheckCircleDuotone } from "react-icons/pi";
+import { FaExclamationCircle } from "react-icons/fa";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -18,13 +20,22 @@ const ContactForm = () => {
   };
 
   const handleSubmit = async (e) => {
+    setStatus({
+      success: null,
+      message: "",
+      loading: true,
+    });
     e.preventDefault();
     try {
       const response = await axios.post(
         "https://mail-server-6sjb.onrender.com/api/mail/roob-commission-request",
         formData
       );
-      setStatus({ success: true, message: "Form submitted successfully!" });
+      setStatus({
+        success: true,
+        message: "Form submitted successfully!",
+        loading: false,
+      });
       setFormData({
         firstName: "",
         contactEmail: "",
@@ -36,6 +47,7 @@ const ContactForm = () => {
       setStatus({
         success: false,
         message: "Something went wrong. Please try again later.",
+        loading: false,
       });
       console.log(error);
     }
@@ -43,15 +55,6 @@ const ContactForm = () => {
 
   return (
     <div className=" p-2 mx-2 mt-2 mb-10  flex flex-col">
-      {status && (
-        <p
-          className={`mb-4 text-sm ${
-            status.success ? "text-green-600" : "text-red-600"
-          }`}
-        >
-          {status.message}
-        </p>
-      )}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="firstName" className="block text-sm font-medium mb-1">
@@ -139,11 +142,48 @@ const ContactForm = () => {
           ></textarea>
         </div>
         <button
+          disabled={status}
           type="submit"
-          className="w-full py-2 px-4 rounded-sm border-gray-700 bg-black text-white hover:bg-opacity-80 border"
+          className="w-full py-2 px-4 rounded-sm border-gray-700 bg-black text-white hover:bg-opacity-80 border flex"
         >
-          Submit
+          {status ? (
+            <span className="w-full">
+              {status.loading ? (
+                <span className="flex">
+                  <span className="ml-auto mr-1 animate-pulse">
+                    Sending ...
+                  </span>
+                  <span className="mr-auto ml-1 my-auto">
+                    <PiSpinnerGapDuotone className="ani animate-spin mr-auto" />
+                  </span>
+                </span>
+              ) : status.failed ? (
+                <span className="flex">
+                  <span className="ml-auto mr-1">Failed to send</span>
+                  <span className="mr-auto ml-1 my-auto">
+                    <FaExclamationCircle className="mr-auto" />
+                  </span>
+                </span>
+              ) : status.success ? (
+                <span className="flex w-full">
+                  <span className="ml-auto mr-1">Sent</span>
+                  <span className="mr-auto ml-1 my-auto">
+                    <PiCheckCircleDuotone className="mr-auto" />
+                  </span>
+                </span>
+              ) : (
+                "Submit"
+              )}
+            </span>
+          ) : (
+            <span className="mx-auto">Submit</span>
+          )}
         </button>
+        {status && (
+          <p className={`mb-4 sm:text-lg text-center mx-auto w-full`}>
+            {status.message}
+          </p>
+        )}
       </form>
     </div>
   );
