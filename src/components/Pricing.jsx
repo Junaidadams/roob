@@ -22,7 +22,7 @@ const Pricing = () => {
           prices.map((price) => (
             <div
               key={price._id}
-              className="border-gray-700 border p-2 m-2 rounded-sm bg-pastelpink bg-opacity-50 flex flex-col "
+              className="border-gray-700 border border-t-2 p-2 m-2 rounded-sm bg-pastelpink bg-opacity-50 flex flex-col "
             >
               <div>
                 <h1 className="text-xl lg:text-2xl font-medium">
@@ -48,7 +48,7 @@ const Pricing = () => {
         ) : (
           <p className="tracking-wider p-4 sm:text-lg">
             Pricing information is currently unavailable, please try again
-            later.{" "}
+            later.
           </p>
         )}
       </div>

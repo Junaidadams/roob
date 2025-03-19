@@ -27,9 +27,9 @@ const CommissionDisplay = () => {
           commissionPieces.map((piece) => (
             <motion.div
               key={piece._id}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.02, opacity: 0.8 }}
               onClick={() => setFocused(piece)}
-              className="border-black border rounded-sm hover:cursor-pointer"
+              className="border-black border-t-2 border rounded-sm hover:cursor-pointer"
             >
               {piece.image && (
                 <motion.img
